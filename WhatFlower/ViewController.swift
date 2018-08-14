@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -22,9 +24,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let userPickedImage = info[UIImagePickerControllerEditedImage]
-        imageView.image = userPickedImage as? UIImage
+        if let userPickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            guard let ciimage = CIImage(image: userPickedImage) else {
+                fatalError("cannot convert to CIImage")
+            }
+            
+            detect(image: ciimage)
+            imageView.image = userPickedImage
+        }
+        
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func detect(image: CIImage) {
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else {
+            fatalError("cannot import model")
+        }
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            let classification = request.results?.first as? VNClassificationObservation
+            self.navigationItem.title = classification?.identifier.capitalized
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: image)
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
+        
     }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
