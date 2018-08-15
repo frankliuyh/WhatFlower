@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let wikipediaURl = "https://en.wikipedia.org/w/api.php"
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             ]
         Alamofire.request(wikipediaURl, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
-                print(response)
+                let flowerJSON : JSON = JSON(response.result.value!)
+                let pageid = flowerJSON["query"]["pageids"][0].stringValue
+                let flowerDescirption = flowerJSON["query"]["pages"][pageid]["extract"].stringValue
+                
+                self.label.text = flowerDescirption
             }
         }
     }
