@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QvM-cW-lTF">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +17,40 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhatFlower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kww-Mh-uOv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kww-Mh-uOv" secondAttribute="height" multiplier="1:1" id="Le2-IF-20K"/>
+                                    <constraint firstAttribute="width" constant="600" id="PlL-kb-MkF"/>
+                                    <constraint firstAttribute="width" secondItem="kww-Mh-uOv" secondAttribute="height" multiplier="1:1" id="oVp-nX-9hL"/>
+                                    <constraint firstAttribute="width" secondItem="kww-Mh-uOv" secondAttribute="height" id="tYv-OJ-4U6"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PlL-kb-MkF"/>
+                                        <exclude reference="oVp-nX-9hL"/>
+                                        <exclude reference="tYv-OJ-4U6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Le2-IF-20K"/>
+                                        <include reference="tYv-OJ-4U6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="Le2-IF-20K"/>
+                                        <include reference="PlL-kb-MkF"/>
+                                        <include reference="oVp-nX-9hL"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="M4c-pr-lx7">
-                                <rect key="frame" x="16" y="447" width="343" height="200"/>
+                                <rect key="frame" x="608" y="-19" width="400" height="767"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -35,13 +59,78 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="M4c-pr-lx7" secondAttribute="bottom" constant="20" id="5Wo-z3-6yv"/>
                             <constraint firstItem="M4c-pr-lx7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6za-vJ-u4g"/>
+                            <constraint firstItem="M4c-pr-lx7" firstAttribute="centerY" secondItem="kww-Mh-uOv" secondAttribute="centerY" id="Bc8-M5-P82"/>
+                            <constraint firstAttribute="bottom" secondItem="M4c-pr-lx7" secondAttribute="bottom" constant="20" symbolic="YES" id="GDI-rN-1PK"/>
+                            <constraint firstItem="kww-Mh-uOv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IcE-4z-2HC"/>
                             <constraint firstItem="kww-Mh-uOv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lam-za-oSA"/>
+                            <constraint firstItem="kww-Mh-uOv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Nlh-x6-t0Z"/>
                             <constraint firstItem="M4c-pr-lx7" firstAttribute="top" secondItem="kww-Mh-uOv" secondAttribute="bottom" constant="8" id="WfR-5e-xrn"/>
+                            <constraint firstItem="kww-Mh-uOv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZBX-6X-N2l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M4c-pr-lx7" secondAttribute="trailing" constant="16" id="f14-Gd-bqx"/>
+                            <constraint firstItem="kww-Mh-uOv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="g4c-tg-N7E"/>
+                            <constraint firstItem="M4c-pr-lx7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gIe-Bk-cOg"/>
+                            <constraint firstAttribute="bottom" secondItem="M4c-pr-lx7" secondAttribute="bottom" constant="20" symbolic="YES" id="gOW-0I-1Df"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M4c-pr-lx7" secondAttribute="trailing" constant="16" id="ghj-ta-9qB"/>
+                            <constraint firstItem="M4c-pr-lx7" firstAttribute="leading" secondItem="kww-Mh-uOv" secondAttribute="trailing" constant="8" symbolic="YES" id="hMX-Gw-oUO"/>
+                            <constraint firstItem="M4c-pr-lx7" firstAttribute="centerY" secondItem="kww-Mh-uOv" secondAttribute="centerY" id="klL-YG-tqP"/>
                             <constraint firstItem="kww-Mh-uOv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oeQ-Ks-nMf"/>
+                            <constraint firstItem="M4c-pr-lx7" firstAttribute="leading" secondItem="kww-Mh-uOv" secondAttribute="trailing" constant="8" symbolic="YES" id="rtm-BX-hye"/>
+                            <constraint firstItem="kww-Mh-uOv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="whM-uW-neJ"/>
                             <constraint firstItem="kww-Mh-uOv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zl9-Ct-cK8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ghj-ta-9qB"/>
+                                <exclude reference="IcE-4z-2HC"/>
+                                <exclude reference="Nlh-x6-t0Z"/>
+                                <exclude reference="ZBX-6X-N2l"/>
+                                <exclude reference="g4c-tg-N7E"/>
+                                <exclude reference="whM-uW-neJ"/>
+                                <exclude reference="Bc8-M5-P82"/>
+                                <exclude reference="GDI-rN-1PK"/>
+                                <exclude reference="gIe-Bk-cOg"/>
+                                <exclude reference="gOW-0I-1Df"/>
+                                <exclude reference="hMX-Gw-oUO"/>
+                                <exclude reference="klL-YG-tqP"/>
+                                <exclude reference="rtm-BX-hye"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="5Wo-z3-6yv"/>
+                                <exclude reference="f14-Gd-bqx"/>
+                                <exclude reference="Lam-za-oSA"/>
+                                <include reference="Nlh-x6-t0Z"/>
+                                <include reference="ZBX-6X-N2l"/>
+                                <include reference="g4c-tg-N7E"/>
+                                <exclude reference="oeQ-Ks-nMf"/>
+                                <exclude reference="zl9-Ct-cK8"/>
+                                <exclude reference="6za-vJ-u4g"/>
+                                <exclude reference="WfR-5e-xrn"/>
+                                <include reference="gIe-Bk-cOg"/>
+                                <include reference="gOW-0I-1Df"/>
+                                <include reference="klL-YG-tqP"/>
+                                <include reference="rtm-BX-hye"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="5Wo-z3-6yv"/>
+                                <exclude reference="f14-Gd-bqx"/>
+                                <include reference="ghj-ta-9qB"/>
+                                <include reference="IcE-4z-2HC"/>
+                                <exclude reference="Lam-za-oSA"/>
+                                <exclude reference="oeQ-Ks-nMf"/>
+                                <include reference="whM-uW-neJ"/>
+                                <exclude reference="zl9-Ct-cK8"/>
+                                <exclude reference="6za-vJ-u4g"/>
+                                <include reference="Bc8-M5-P82"/>
+                                <include reference="GDI-rN-1PK"/>
+                                <exclude reference="WfR-5e-xrn"/>
+                                <include reference="hMX-Gw-oUO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="FF4-NF-w2a">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="vU5-Ky-beb">
@@ -58,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="688.79999999999995" y="115.59220389805098"/>
+            <point key="canvasLocation" x="688.4765625" y="114.0625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qq2-gI-VoD">
@@ -66,7 +155,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QvM-cW-lTF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="imb-ef-LII">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
